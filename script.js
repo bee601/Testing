@@ -6,7 +6,6 @@ window.addEventListener('pointermove', (event) => {
   cursorGlow.style.top = `${event.clientY}px`;
   cursorGlow.classList.add('visible');
 });
-
 window.addEventListener('pointerleave', () => cursorGlow.classList.remove('visible'));
 
 magneticElements.forEach((element) => {
