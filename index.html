@@ -20,6 +20,34 @@
     .build-gallery{padding:0 0 170px}.gallery-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:42px}.gallery-heading h2{font-size:clamp(48px,6vw,78px);margin:0}.gallery-heading p{max-width:240px;margin:0;color:var(--muted);font-size:12px;line-height:1.6}.gallery-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.gallery-shot{min-height:260px;position:relative;overflow:hidden;border:1px solid rgba(125,245,39,.34);background:linear-gradient(135deg,#1b3615,#0b110b);box-shadow:10px 10px 0 rgba(63,148,19,.24)}.gallery-shot:first-child{grid-row:span 2;min-height:540px}.gallery-shot:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(169,245,111,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(169,245,111,.1) 1px,transparent 1px);background-size:38px 38px;transform:perspective(500px) rotateX(55deg) scale(1.5) translateY(18%);opacity:.7}.gallery-shot:after{content:"";position:absolute;inset:16px;border:1px dashed rgba(125,245,39,.35)}.gallery-shot span{position:absolute;z-index:1;color:var(--pink);font-weight:700;font-size:clamp(21px,3vw,38px);line-height:.9;letter-spacing:-.08em;text-transform:uppercase}.gallery-shot small{position:absolute;z-index:1;top:28px;left:29px;color:var(--muted);font:9px var(--mono);letter-spacing:.08em}.gallery-shot span{left:29px;bottom:28px}.gallery-shot b{position:absolute;z-index:1;right:29px;bottom:28px;color:var(--acid);font:9px var(--mono);letter-spacing:.08em}.community-thanks{margin-top:24px!important;color:var(--pink)!important;font-weight:600}
     @media(max-width:760px){.build-gallery{padding-bottom:100px}.gallery-heading{display:block}.gallery-heading p{margin-top:22px}.gallery-grid{display:block}.gallery-shot,.gallery-shot:first-child{min-height:280px;margin-bottom:14px}.gallery-shot:first-child{min-height:390px}}
   </style>
+  <style>
+    .feature-card,
+    .gallery-shot,
+    .profile-card {
+      transition: transform .45s cubic-bezier(.2, .8, .2, 1), box-shadow .45s ease;
+    }
+
+    .feature-card:hover,
+    .gallery-shot:hover {
+      transform: translateY(-12px) rotate(-1deg);
+      box-shadow: 0 22px 35px rgba(0, 0, 0, .28);
+    }
+
+    .profile-card:hover {
+      transform: translateY(-10px) rotate(2deg);
+    }
+
+    .feature-card::after,
+    .gallery-shot::after {
+      transition: inset .45s ease, border-color .45s ease;
+    }
+
+    .feature-card:hover::after,
+    .gallery-shot:hover::after {
+      inset: 9px;
+      border-color: var(--pink);
+    }
+  </style>
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
