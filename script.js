@@ -1,17 +1,7 @@
-const cursorGlow = document.querySelector('.cursor-glow');
 const magneticElements = document.querySelectorAll('.magnetic');
 
-window.addEventListener('pointermove', (event) => {
-  cursorGlow.style.left = `${event.clientX}px`;
-  cursorGlow.style.top = `${event.clientY}px`;
-  cursorGlow.classList.add('visible');
-});
-window.addEventListener('pointerleave', () => cursorGlow.classList.remove('visible'));
-
 magneticElements.forEach((element) => {
-  element.addEventListener('pointerenter', () => cursorGlow.classList.add('large'));
   element.addEventListener('pointerleave', () => {
-    cursorGlow.classList.remove('large');
     element.style.transform = '';
   });
   element.addEventListener('pointermove', (event) => {
