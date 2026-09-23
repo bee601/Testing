@@ -104,9 +104,66 @@
         animation: none;
       }
     }
+
+    .ambient-video {
+      position: fixed;
+      z-index: -3;
+      inset: -8%;
+      width: 116%;
+      height: 116%;
+      object-fit: cover;
+      opacity: .16;
+      filter: saturate(.72) brightness(.48) contrast(1.08) blur(1px);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    body > .ambient-video {
+      position: fixed;
+      z-index: 0;
+    }
+
+    body::before {
+      background: linear-gradient(180deg, rgba(12, 18, 11, .72), rgba(12, 18, 11, .94)), radial-gradient(circle at 78% 8%, rgba(32, 59, 24, .48) 0, transparent 31%), radial-gradient(circle at 13% 71%, rgba(23, 43, 18, .42) 0, transparent 30%), var(--bg);
+    }
+
+    .hero-media {
+      background: linear-gradient(135deg, rgba(28, 56, 21, .68), rgba(11, 17, 11, .78) 62%);
+      border-color: rgba(125, 245, 39, .18);
+      box-shadow: 0 24px 80px rgba(5, 8, 5, .62), 10px 10px 0 rgba(63, 148, 19, .12);
+      backdrop-filter: blur(3px);
+    }
+
+    .media-frame {
+      border-color: rgba(169, 245, 111, .24);
+      background: radial-gradient(circle at center, rgba(63, 148, 19, .13), transparent 58%);
+    }
+
+    .media-note { color: rgba(125, 245, 39, .72); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px) scale(.985);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-video { display: none; }
+      .reveal,
+      .reveal.is-visible { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
+  <video class="ambient-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="https://cdn.dribbble.com/userupload/9322059/file/original-e10daf1419f90a8b1787ae43f95d3c36.mp4" type="video/mp4" />
+  </video>
   <div class="noise" aria-hidden="true"></div>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="BambooFFA home"><span class="brand-icon"><i></i><i></i><i></i></span><span>BAMBOO<sup>FFA</sup></span></a>
