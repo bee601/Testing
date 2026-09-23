@@ -49,12 +49,22 @@
     }
 
     body::before {
-      animation: ambient-drift 18s ease-in-out infinite alternate;
-      background-size: 130% 130%;
+      z-index: 0;
+      opacity: .8;
+      pointer-events: none;
+      background: radial-gradient(circle at 78% 8%, rgba(125, 245, 39, .28) 0, transparent 30%), radial-gradient(circle at 13% 71%, rgba(63, 148, 19, .34) 0, transparent 32%), transparent;
+      background-size: 180% 180%;
+      animation: ambient-drift 14s ease-in-out infinite alternate;
     }
 
     body::after {
+      z-index: 0;
       animation: grid-drift 24s linear infinite;
+    }
+
+    body > :not(.noise) {
+      position: relative;
+      z-index: 1;
     }
 
     .feature-card h3,
@@ -78,9 +88,9 @@
     }
 
     @keyframes ambient-drift {
-      0% { background-position: 78% 8%, 13% 71%; }
-      50% { background-position: 62% 22%, 30% 56%; }
-      100% { background-position: 84% 34%, 8% 80%; }
+      0% { background-position: 0% 0%; opacity: .55; }
+      50% { background-position: 55% 35%; opacity: .9; }
+      100% { background-position: 100% 75%; opacity: .65; }
     }
 
     @keyframes grid-drift {
